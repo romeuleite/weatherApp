@@ -1,5 +1,8 @@
 package com.example.weatherapp.ui.feature
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.data.repository.WeatherRepository
@@ -19,8 +22,14 @@ class WeatherViewModel @Inject constructor(
     private val _weatherInfoState = MutableStateFlow(WeatherInfoState())
     val weatherInfoState: StateFlow<WeatherInfoState> = _weatherInfoState.asStateFlow()
 
+    var cityName by mutableStateOf("Belo Horizonte")
+
     init {
         getWeatherInfo()
+    }
+
+    fun updateCityName(input: String) {
+        cityName = input
     }
 
     private fun getWeatherInfo() {
