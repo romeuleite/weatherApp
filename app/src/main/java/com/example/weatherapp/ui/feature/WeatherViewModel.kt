@@ -28,6 +28,7 @@ class WeatherViewModel @Inject constructor(
         getWeatherInfo()
     }
 
+
     fun updateCityName(input: String) {
         cityName = input
     }
